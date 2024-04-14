@@ -1,22 +1,19 @@
 import React from 'react';
 
-interface ForumCardProps {
+export interface ForumCardProps {
   data: {
     date: string;
     category: string;
     title: string;
     description: string;
     readMoreLink: string;
-    author: {
-      name: string;
-      avatar: string;
-    };
+    author: string
   };
 }
 
 const ForumCard: React.FC<ForumCardProps> = ({ data }) => {
   return (
-    <div className="max-w-4xl px-8 py-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
+    <div className="w-[900px] px-8 py-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
       <div className="flex items-center justify-between">
         <span className="text-sm font-light text-gray-600 dark:text-gray-400">
           {data.date}
@@ -27,7 +24,7 @@ const ForumCard: React.FC<ForumCardProps> = ({ data }) => {
           tabIndex={0}
           role="button"
         >
-          {data.category}
+          New Project
         </a>
       </div>
 
@@ -67,7 +64,7 @@ const ForumCard: React.FC<ForumCardProps> = ({ data }) => {
             tabIndex={0}
             role="link"
           >
-            {data.author.name}
+            {data.author}
           </a>
         </div>
       </div>

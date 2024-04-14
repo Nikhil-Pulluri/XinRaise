@@ -1,5 +1,4 @@
 import ProjectCreateForm from '@/components/FundRisingCard'
-import React from 'react'
 
 const MintToken = () => {
   return (

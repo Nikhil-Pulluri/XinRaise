@@ -5,12 +5,13 @@ import Navbar from '@/components/Navbar';
 import Home from '@/pages/Home';
 import MintToken from '@/pages/MintToken';
 import Dashboard from '@/pages/Dashboard';
+
 // import DiscussionForum from './pages/DiscussionForum';
 import NotFoundPage from '@/pages/NotFound';
 import Analysis from './pages/Analysis';
 import DiscussionForum from './pages/DiscussionForum';
 
-const App = () => {
+function App() {
   return (
     <div className="relative sm:-8 p-4 bg-[aliceblue] min-h-screen flex flex-row">
       <div className="relative hidden mr-10 sm:flex">

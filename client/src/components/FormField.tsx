@@ -20,7 +20,7 @@ const FormField: React.FC<FormFieldProps> = ({
   return (
     <label className="flex flex-col flex-1 w-full">
       {labelName && (
-        <span className="font-epilogue font-medium text-[14px] leading-[22px] text-white mb-[10px]">
+        <span className="font-epilogue font-medium text-[14px] leading-[22px] text-black mb-[10px]">
           {labelName}
         </span>
       )}
@@ -31,7 +31,7 @@ const FormField: React.FC<FormFieldProps> = ({
           onChange={(e) => { handleChange(e) }}
           rows={4}
           placeholder={placeholder}
-          className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[14px] placeholder:text-[#4b5264] rounded-[10px] sm:min-w-[300px]"
+          className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-black text-[14px] placeholder:text-[#4b5264] rounded-[10px] sm:min-w-[300px]"
         />
       ) : (
         <input
@@ -40,7 +40,7 @@ const FormField: React.FC<FormFieldProps> = ({
           onChange={(e) => { handleChange(e) }}
           type={inputType}
           placeholder={placeholder}
-          className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] text-white border-[#3a3a43] bg-transparent font-epilogue  text-[14px] placeholder:text-[#4b5264] rounded-[10px] sm:min-w-[300px]"
+          className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] text-black border-[#3a3a43] bg-transparent font-epilogue  text-[14px] placeholder:text-[#4b5264] rounded-[10px] sm:min-w-[300px]"
         />
       )}
     </label>

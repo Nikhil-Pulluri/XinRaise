@@ -19,8 +19,7 @@ interface Donator {
 
 function Dashboard() {
   const [donators, setDonators] = useState<Donator[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [campaignData, setCampaignData] = useState<Campaign[]>([]);
+  const [campaignData] = useState<Campaign[]>([]);
 
   // useEffect(() => {
   //   setLoading(true);

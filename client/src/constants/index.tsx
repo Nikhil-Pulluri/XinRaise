@@ -47,14 +47,14 @@ export const navlinks = [
 
 
 export interface CampaignData {
-  owner: string;
+  pId: number;
+  owner: `0x${string}`;
   title: string;
   description: string;
-  target: string;
-  deadline: Date;
-  amountCollected: string;
+  target: bigint;
+  deadline: bigint;
+  amountCollected: bigint;
   image: string;
-  pId: number;
 }
 
 

@@ -4,7 +4,7 @@ import { IoMenu } from "react-icons/io5";
 import { navlinks } from '../constants';
 import { CiSearch } from "react-icons/ci";
 import { SiPolymerproject } from 'react-icons/si';
-import { ConnectWallet } from '@thirdweb-dev/react';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -21,8 +21,8 @@ const Navbar = () => {
       </div>
 
       <div className="flex-row items-center justify-end hidden gap-4 sm:flex">
-        <ConnectWallet theme={'light'} />
-
+        {/* <ConnectWallet theme={'light'} /> */}
+        <ConnectButton />
         <Link to="/dashboard">
           <div className="w-[52px] h-[52px] rounded-full bg-white shadow-lg flex justify-center items-center cursor-pointer">
             <img src={'/metamask-icon.webp'} alt="user" className="w-[60%] h-[60%] object-contain" />
@@ -61,7 +61,7 @@ const Navbar = () => {
           </ul>
 
           <div className="flex mx-4">
-            <ConnectWallet theme={'light'} />
+            {/* <ConnectWallet theme={'light'} /> */}
           </div>
         </div>
       </div>

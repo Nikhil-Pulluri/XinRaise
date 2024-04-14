@@ -1,40 +1,43 @@
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ThirdwebProvider } from '@thirdweb-dev/react';
 import App from './App';
+import { WagmiProvider } from 'wagmi';
 import './index.css';
-// import { StateContextProvider } from './context';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import '@rainbow-me/rainbowkit/styles.css';
 import {
-  metamaskWallet,
-  coinbaseWallet,
-  walletConnect,
-} from "@thirdweb-dev/react";
+  getDefaultConfig,
+  RainbowKitProvider,
+} from '@rainbow-me/rainbowkit';
+import {
+  xdcTestnet
+} from 'wagmi/chains';
 
+export const config = getDefaultConfig({
+  appName: 'dimo_hacks',
+  projectId: '031187eac503814005ac190ad3aa19ff',
+  chains: [xdcTestnet],
+  ssr: true,
+});
 
-
+const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 
 
 root.render(
-  <ThirdwebProvider
-    supportedWallets={[
-      metamaskWallet({
-        recommended: true,
-      }),
-      coinbaseWallet({
-        recommended: false
-      }),
-      walletConnect(),
-    ]}
-    clientId='1db28cb0dd435c089a8b8e9630e04dcb8c67ee612ffd40ed2cc518da4fc5d517'
-
+  <WagmiProvider
+    config={config}
   >
-    {/* <StateContextProvider> */}
-    <Router>
+    <QueryClientProvider client={queryClient}>
+      <RainbowKitProvider>
+        {/* <StateContextProvider> */}
+        <Router>
 
-      <App />
-    </Router>
-    {/* </StateContextProvider> */}
-  </ThirdwebProvider>
+          <App />
+        </Router>
+      </RainbowKitProvider>
+    </QueryClientProvider>
+
+  </WagmiProvider>
 );
