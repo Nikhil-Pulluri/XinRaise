@@ -1,4 +1,6 @@
 import React from 'react';
+import { useAccount, useWriteContract } from 'wagmi';
+import abi from '@/contracts/fundingAbi';
 interface FundingCard {
   pId: number;
   owner: `0x${string}`;
@@ -15,10 +17,25 @@ interface FundingCardProps {
 }
 
 const FundingCard: React.FC<FundingCardProps> = ({ project }) => {
+  const { address } = useAccount();
+  const { writeContract } = useWriteContract();
   const unixTimestamp = Number(project.deadline);
   const timestampInMilliseconds = unixTimestamp * 1000;
   const date = new Date(timestampInMilliseconds);
   const formattedDate = date.toLocaleDateString();
+
+  function donateToCampaign() {
+    const data = writeContract({
+      account: address,
+      address: '0x0F514aB775D63C58A5482dD3464868D24E6449F5',
+      abi: abi,
+      functionName: "donateToCampaign",
+      args: [project.pId
+
+      ],
+    });
+    console.log(data);
+  }
 
 
   return (
@@ -50,7 +67,7 @@ const FundingCard: React.FC<FundingCardProps> = ({ project }) => {
 
       <div className="flex items-center justify-between mt-4">
         <button
-          onClick={() => { console.log('Funding') }}
+          onClick={donateToCampaign}
           className="text-white font-bold shadow-lg px-5 py-2 rounded-xl bg-[#836FFF] dark:text-blue-400"
         >
           Fund Business
